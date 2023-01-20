@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -119,7 +116,47 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if (someJobs.size() == 0){
+            System.out.println("No Results");
+            return;
+        }
 
-        System.out.println("printJobs is not implemented yet");
+        for (int i = 0; i < someJobs.size(); i++){
+            HashMap<String,String> map = (HashMap<String,String>) someJobs.get(i);
+            while(map.size() > 0){
+                System.out.println("*****");
+                String[] values= {"position type","name","employer","location","core competency"};
+                for(String value: values){
+                    switch (value){
+                        case "position type":
+                            System.out.println("position type: " + map.get(value));
+                            map.remove(value);
+                            break;
+                        case "name":
+                            System.out.println("name: " + map.get(value));
+                            map.remove(value);
+                            break;
+                        case "employer":
+                            System.out.println("employer: " + map.get(value));
+                            map.remove(value);
+                            break;
+                        case "location":
+                            System.out.println("location: " + map.get(value));
+                            map.remove(value);
+                            break;
+                        case "core competency":
+                            System.out.println("core competency: " + map.get(value));
+                            map.remove(value);
+                            break;
+                        default:
+                            continue;
+                    }
+                }
+                System.out.println("*****\n");
+
+            }
+
+        }
+        //System.out.println("printJobs is not implemented yet");
     }
 }
